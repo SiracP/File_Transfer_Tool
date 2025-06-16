@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>700</width>
+    <height>500</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>File Transfer Tool</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="tabDiscover">
+       <attribute name="title">
+        <string>Discover</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayoutTab1">
+        <item>
+         <widget class="QPushButton" name="btnDiscover">
+          <property name="text">
+           <string>Discover</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QTreeWidget" name="treePeers">
+          <property name="columnCount">
+           <number>5</number>
+          </property>
+          <column>
+           <property name="text">
+            <string>Hostname</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>IP</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>OS</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>MAC</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Ping (ms)</string>
+           </property>
+          </column>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayoutDiscover">
+          <item>
+           <widget class="QLineEdit" name="leFilePath"/>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnSelectFile">
+            <property name="text">
+             <string>Select File</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnSend">
+            <property name="text">
+             <string>Send</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tabReceived">
+       <attribute name="title">
+        <string>Received Files</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayoutTab2">
+        <item>
+         <widget class="QListWidget" name="listReceived"/>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayoutReceivedFooter">
+          <item>
+           <widget class="QLabel" name="labelReceivedFolder">
+            <property name="text">
+             <string>Directory: </string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Orientation::Horizontal</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Policy::Expanding</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnOpenReceivedFolder">
+            <property name="text">
+             <string>Open Download Folder</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tabSent">
+       <attribute name="title">
+        <string>Sent Files</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayoutTab3">
+        <item>
+         <widget class="QListWidget" name="listSent"/>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayoutSentFooter">
+          <item>
+           <spacer name="horizontalSpacerSent">
+            <property name="orientation">
+             <enum>Qt::Orientation::Horizontal</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Policy::Expanding</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
