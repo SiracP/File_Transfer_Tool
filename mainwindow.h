@@ -89,6 +89,7 @@ struct ReceiveJob {
     quint32 headerBytesRemaining = 0;                   /// Bytes left to read for header.
     QString fileName;                                   /// Name of the incoming file.
     qint64  fileBytesRemaining   = 0;                   /// Bytes left to write for file body.
+    qint64  totalBytes   = 0;                           /// Total size of the file.
     QString expectedHash;                               /// SHA-256 hash from header.
     QFile* file = nullptr;                              /// File being written.
     QProgressDialog* progress = nullptr;                /// Progress dialog shown to user.

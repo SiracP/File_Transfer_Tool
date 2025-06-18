@@ -430,6 +430,7 @@ void MainWindow::processReceive(QTcpSocket* sock, ReceiveJob* job) {
         quint64 fileSize;
         ds >> job->fileName >> fileSize >> job->expectedHash;
         job->fileBytesRemaining = qint64(fileSize);
+        job->totalBytes = qint64(fileSize);
 
         QString dl = QStandardPaths::writableLocation(QStandardPaths::DownloadLocation);
         if (dl.isEmpty()) dl = QDir::homePath();
@@ -442,7 +443,7 @@ void MainWindow::processReceive(QTcpSocket* sock, ReceiveJob* job) {
             sock->close();
             return;
         }
-        job->progress = new QProgressDialog(tr("Downloading…"), tr("Cancel"), 0, fileSize, this);
+        job->progress = new QProgressDialog(tr("Downloading…"), tr("Cancel"), 0, 100, this);
         job->progress->setWindowModality(Qt::WindowModal);
         job->state = ReceiveState::ReceivingFileBody;
     }
@@ -454,7 +455,7 @@ void MainWindow::processReceive(QTcpSocket* sock, ReceiveJob* job) {
         job->buffer.remove(0, toWrite);
         job->fileBytesRemaining -= toWrite;
         if (job->progress) {
-            job->progress->setValue(int(job->progress->maximum() - job->fileBytesRemaining));
+            job->progress->setValue(int(100 * (job->totalBytes - job->fileBytesRemaining) / job->totalBytes));
         }
     }
 
